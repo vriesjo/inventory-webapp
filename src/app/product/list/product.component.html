@@ -1,0 +1,61 @@
+<header>
+  <h2>List of products</h2>
+</header>
+<div id="entities" *ngIf="products && products.length > 0">
+  <table>
+    <thead>
+    <tr>
+      <th scope="col"><span>Id</span></th>
+      <th scope="col"><span>Code</span></th>
+      <th scope="col"><span>Name</span></th>
+      <th scope="col"><span>Unit</span></th>
+      <th scope="col"><span>Price</span></th>
+      <th scope="col"><span>Quantity</span></th>
+      <th scope="col"><span>Status</span></th>
+      <th scope="col"><span>Supplier</span></th>
+      <th scope="col"><span>Category</span></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products" data-cy="entityTable">
+      <td>
+        <a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a>
+      </td>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.unit }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.status }}</td>
+      <td>
+        <div *ngIf="product.supplier">
+          <a [routerLink]="['/supplier', product.supplier?.id, 'view']">{{ product.supplier?.id }}</a>
+        </div>
+      </td>
+      <td>
+        <div *ngIf="product.category">
+          <a [routerLink]="['/category', product.category?.id, 'view']">{{ product.category?.id }}</a>
+        </div>
+      </td>
+      <td class="text-right">
+        <div>
+          <button type="submit" [routerLink]="['/product', product.id, 'edit']" class="btn btn-primary">
+            <span>Edit</span>
+          </button>
+
+<!--          <button type="submit" (click)="delete(product)" class="btn btn-primary" >-->
+<!--            <span>Delete</span>-->
+<!--          </button>-->
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="btn-group">
+  <button [routerLink]="['/product', 'new']" class="btn btn-primary">
+    <span>New</span>
+  </button>
+</div>

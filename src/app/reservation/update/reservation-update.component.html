@@ -1,0 +1,38 @@
+<header>
+  <h2>Create reservation</h2>
+  <h3 *ngIf="isError"><div class="error" *ngIf="errorKey">{{errorKey}}</div></h3>
+  <h3 *ngIf="isSaved"><div class="success">Nice work!</div></h3>
+</header>
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+    <tr>
+      <td><label>SessionId</label></td>
+      <td><input formControlName="sessionId" /></td>
+    </tr>
+    <tr>
+      <td><label>SupplierId</label></td>
+      <td><input formControlName="supplierId" /></td>
+    </tr>
+    <tr>
+      <td><label>ProductId</label></td>
+      <td><input formControlName="productId" /></td>
+    </tr>
+    <tr>
+      <td><label>Quantity</label></td>
+      <td><input formControlName="quantity" /></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="btn-group">
+    <button
+      type="submit"
+      id="save-entity"
+      [disabled]="editForm.invalid || isSaving"
+      class="btn-primary">
+      <span>Save</span>
+    </button>
+  </div>
+</form>

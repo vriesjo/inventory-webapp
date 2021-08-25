@@ -1,0 +1,35 @@
+<header>
+  <h2>List of categories</h2>
+</header>
+<div id="entities" *ngIf="categories && categories.length > 0">
+  <table>
+    <thead>
+    <tr>
+      <th scope="col"><span>Id</span></th>
+      <th scope="col"><span>Name</span></th>
+      <th scope="col"><span>Description</span></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of categories" data-cy="entityTable">
+      <td>{{ category.id }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+      <td class="text-right">
+        <div class="btn-group">
+          <button type="submit" [routerLink]="['/category', category.id, 'edit']" class="btn btn-primary">
+            <span>Edit</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="btn-group">
+  <button [routerLink]="['/category', 'new']" class="btn btn-primary">
+    <span>New</span>
+  </button>
+</div>

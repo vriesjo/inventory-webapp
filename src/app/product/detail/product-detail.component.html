@@ -1,0 +1,47 @@
+<header>
+  <h2>Product details</h2>
+</header>
+<div *ngIf="product">
+<table>
+  <thead>
+  </thead>
+  <tbody>
+  <tr>
+    <td><label>Id</label></td>
+    <td>{{ product.id }}</td>
+  </tr>
+  <tr>
+    <td><label>Code</label></td>
+    <td>{{ product.code }}</td>
+  </tr>
+  <tr>
+    <td><label>Name</label></td>
+    <td>{{ product.name }}</td>
+  </tr>
+  <tr>
+    <td><label>Unit</label></td>
+    <td>{{ product.unit }}</td>
+  </tr>
+  <tr>
+    <td><label>Price</label></td>
+    <td>{{ product.price }}</td>
+  </tr>
+  <tr>
+    <td><label>Quantity</label></td>
+    <td>{{ product.quantity }}</td>
+  </tr>
+  <tr>
+    <td><label>Status</label></td>
+    <td>{{ product.status }}</td>
+  </tr>
+  <tr>
+    <td><label>Supplier</label></td>
+    <td>{{ product.supplier?.name }}</td>
+  </tr>
+  <tr>
+    <td><label>Category</label></td>
+    <td>{{ product.category?.name }}</td>
+  </tr>
+  </tbody>
+</table>
+</div>

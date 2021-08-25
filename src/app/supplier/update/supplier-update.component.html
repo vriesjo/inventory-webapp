@@ -1,0 +1,47 @@
+<header>
+  <h2 *ngIf="isCreateMode">Create supplier</h2>
+  <h2 *ngIf="!isCreateMode">Update supplier</h2>
+  <h3 *ngIf="isError"><div class="error" *ngIf="errorKey">{{errorKey}}</div></h3>
+  <h3 *ngIf="isSaved"><div class="success">Nice work!</div></h3>
+</header>
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+    <tr *ngIf="!isCreateMode">
+      <td><label>Id</label></td>
+      <td><input formControlName="id" /></td>
+    </tr>
+    <tr>
+      <td><label>Name</label></td>
+      <td><input formControlName="name" /></td>
+    </tr>
+    <tr>
+      <td><label>Description</label></td>
+      <td><input formControlName="description" /></td>
+    </tr>
+    <tr>
+      <td><label>Email</label></td>
+      <td><input formControlName="email" /></td>
+    </tr>
+    <tr>
+      <td><label>Address</label></td>
+      <td><input formControlName="address" /></td>
+    </tr>
+    <tr>
+      <td><label>Phone</label></td>
+      <td><input formControlName="phone" /></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="btn-group">
+    <button
+      type="submit"
+      id="save-entity"
+      [disabled]="editForm.invalid || isSaving"
+      class="btn-primary">
+      <span>Save</span>
+    </button>
+  </div>
+</form>

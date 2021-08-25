@@ -1,0 +1,31 @@
+<header>
+  <h2>List of reservations</h2>
+</header>
+<div id="entities" *ngIf="reservations && reservations.length > 0">
+  <table>
+    <thead>
+    <tr>
+      <th scope="col"><span>Session</span></th>
+      <th scope="col"><span>Product</span></th>
+      <th scope="col"><span>Supplier</span></th>
+      <th scope="col"><span>Quantity</span></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reservation of reservations" data-cy="entityTable">
+      <td>{{ reservation.sessionId }}</td>
+      <td>{{ reservation.productId }}</td>
+      <td>{{ reservation.supplierId }}</td>
+      <td>{{ reservation.quantity }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="btn-group">
+<!--  <a [routerLink]="['/reservation', 'new']"><span>New</span></a>-->
+  <button [routerLink]="['/reservation', 'new']" class="btn btn-primary">
+    <span>New</span>
+  </button>
+</div>

@@ -1,0 +1,41 @@
+<header>
+  <h2>List of suppliers</h2>
+</header>
+<div id="entities" *ngIf="suppliers && suppliers.length > 0">
+  <table>
+    <thead>
+    <tr>
+      <th scope="col"><span>Id</span></th>
+      <th scope="col"><span>Name</span></th>
+      <th scope="col"><span>Description</span></th>
+      <th scope="col"><span>Address</span></th>
+      <th scope="col"><span>Email</span></th>
+      <th scope="col"><span>Phone</span></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let supplier of suppliers" data-cy="entityTable">
+      <td>{{ supplier.id }}</td>
+      <td>{{ supplier.name }}</td>
+      <td>{{ supplier.description }}</td>
+      <td>{{ supplier.address }}</td>
+      <td>{{ supplier.email }}</td>
+      <td>{{ supplier.phone }}</td>
+            <td class="text-right">
+              <div class="btn-group">
+                <button type="submit" [routerLink]="['/supplier', supplier.id, 'edit']" class="btn btn-primary">
+                  <span>Edit</span>
+                </button>
+              </div>
+            </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="btn-group">
+  <button [routerLink]="['/supplier', 'new']" class="btn btn-primary">
+    <span>New</span>
+  </button>
+</div>
