@@ -47,5 +47,9 @@ To run the dockerized version of this webapp, you just use the following command
 docker run --name inv-webapp-container -d -p 4200:80 vriesjo/inventory-webapp:v1.0.0
 ``` 
 
-The first time it will download the image from:
+The first time it will download the public available image from:
  https://hub.docker.com/repository/docker/vriesjo/inventory-webapp
+ 
+Building the image yourself is of course also possible and can be achieved by:
+  
+`docker build --tag  vriesjo/inventory-webapp:v1.0.1 .`
